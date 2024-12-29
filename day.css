@@ -1,0 +1,176 @@
+/* *{
+    padding: 0;
+    margin: 0;
+}
+
+.body{
+    background: url("snake.jpg");
+    min-height: 100vh;
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#board{
+    background: linear-gradient(rgb(170,236,170), rgb(236,236,167));
+    width: 90vmin;
+    height: 92vmin;
+    border: 2px solid black;
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(18,1fr);
+}
+#scoreBox{
+    margin-left: 300px;
+    margin-top: -600px;
+    font-size: 30px;
+}
+
+.head{
+    background: linear-gradient(rgb(240, 124, 124),rgb(228, 228, 129));
+    border: 2px solid rgb(34, 4, 34);
+    transform: scale(1.02);
+    border-radius: 9px;
+}
+
+.snake{
+    background-color: purple;
+    border: .25vmin solid white;
+    border-radius: 12px;
+}
+
+.food{
+    background: linear-gradient(red, purple);
+    border: .25vmin solid black;
+    border-radius: 8px;
+}
+ */
+
+
+
+
+
+
+
+
+ * {
+    padding: 0;
+    margin: 0;
+}
+
+.body {
+    background: url("snake.jpg");
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif; /* Added a fallback font for a better appearance */
+}
+
+#board {
+    background: linear-gradient(rgb(170,236,170), rgb(236,236,167));
+    width: 90vmin; /* 90% of the smaller of viewport width or height */
+    height: 90vmin; /* Makes sure the board is square and adjusts according to viewport */
+    border: 2px solid black;
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(18, 1fr);
+    box-sizing: border-box;
+    position: relative; /* Ensures the score box is positioned correctly */
+}
+
+/* Score Box */
+#scoreBox {
+    font-size: 4vmin; /* Use a percentage of the viewport for scaling */
+    position: absolute;
+    top: 2vmin;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white; /* Ensure the text is readable on any background */
+}
+
+/* Snake Head */
+.head {
+    background: linear-gradient(rgb(240, 124, 124), rgb(228, 228, 129));
+    border: 2px solid rgb(34, 4, 34);
+    border-radius: 9px;
+    transform: scale(1.02);
+}
+
+/* Snake Body */
+.snake {
+    background-color: purple;
+    border: .25vmin solid white;
+    border-radius: 12px;
+}
+
+/* Food */
+.food {
+    background: linear-gradient(red, purple);
+    border: .25vmin solid black;
+    border-radius: 8px;
+}
+
+/* Media Queries for different screen sizes */
+
+/* For Mobile devices */
+@media (max-width: 600px) {
+    #board {
+        width: 80vmin;
+        height: 80vmin;
+        grid-template-columns: repeat(12, 1fr); /* Fewer columns for smaller screens */
+        grid-template-rows: repeat(12, 1fr); /* Adjust the number of rows */
+    }
+
+    #scoreBox {
+        font-size: 5vmin; /* Slightly larger font size for small screens */
+        top: 3vmin; /* Adjust the score box position */
+    }
+
+    .head, .snake, .food {
+        border-radius: 8px; /* Slightly smaller rounded corners for mobile */
+    }
+}
+
+/* For Tablets and Small Screens */
+@media (min-width: 601px) and (max-width: 900px) {
+    #board {
+        width: 85vmin;
+        height: 85vmin;
+        grid-template-columns: repeat(15, 1fr); /* Adjust number of columns */
+        grid-template-rows: repeat(15, 1fr); /* Adjust number of rows */
+    }
+
+    #scoreBox {
+        font-size: 4vmin;
+        top: 3vmin;
+    }
+
+    .head, .snake, .food {
+        border-radius: 10px; /* Medium-sized rounded corners */
+    }
+}
+
+/* For Desktops and Larger Screens */
+@media (min-width: 901px) {
+    #board {
+        width: 70vmin; /* Larger board size for desktop */
+        height: 70vmin;
+        grid-template-columns: repeat(18, 1fr); /* 18 columns for a larger screen */
+        grid-template-rows: repeat(18, 1fr); /* 18 rows for a larger screen */
+    }
+
+    #scoreBox {
+        font-size: 3vmin; /* Smaller font size for larger screens */
+        top: 2vmin; /* Adjust position for larger screens */
+    }
+
+    .head, .snake, .food {
+        border-radius: 12px; /* Larger rounded corners for desktop */
+    }
+}
+
